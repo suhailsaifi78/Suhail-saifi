@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mohd Suhail | Personal Portfolio</title>
+
+<meta name="description" content="Official personal portfolio of Mohd Suhail — BCA Graduate, Technology Enthusiast and Aspiring Data Analyst.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#f5f1ea;
+    --card:#ffffff;
+    --dark:#111111;
+    --text:#292929;
+    --muted:#777;
+    --gold:#b08d57;
+    --border:#e5dfd5;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(245,241,234,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+/* HERO */
+
+.hero{
+    min-height:calc(100vh - 70px);
+    display:flex;
+    align-items:center;
+    padding:70px 0;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid var(--gold);
+    color:#866b42;
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:.98;
+    letter-spacing:-3px;
+    color:var(--dark);
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero p{
+    font-size:18px;
+    color:var(--muted);
+    max-width:620px;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 21px;
+    border-radius:10px;
+    font-weight:bold;
+    border:1px solid var(--dark);
+    transition:.3s;
+    cursor:pointer;
+    display:inline-block;
+}
+
+.btn-dark{
+    background:var(--dark);
+    color:white;
+}
+
+.btn-dark:hover{
+    transform:translateY(-3px);
+}
+
+.btn-light{
+    background:white;
+}
+
+.btn-light:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+/* PHOTO */
+
+.photo-box{
+    position:relative;
+    display:flex;
+    justify-content:center;
+}
+
+.photo-main{
+    width:82%;
+    max-height:620px;
+    object-fit:cover;
+    border-radius:24px;
+    box-shadow:0 25px 60px rgba(0,0,0,.16);
+}
+
+.photo-small{
+    position:absolute;
+    width:34%;
+    height:190px;
+    object-fit:cover;
+    bottom:25px;
+    left:0;
+    border:7px solid var(--bg);
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    margin-bottom:45px;
+}
+
+.eyebrow{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.section-title h2{
+    font-size:clamp(32px,5vw,52px);
+    color:var(--dark);
+    letter-spacing:-2px;
+}
+
+.section-title p{
+    color:var(--muted);
+    max-width:650px;
+    margin-top:10px;
+}
+
+/* ABOUT */
+
+.about-card{
+    background:var(--card);
+    padding:35px;
+    border-radius:22px;
+    border:1px solid var(--border);
+}
+
+.about-card p{
+    color:#555;
+    font-size:17px;
+}
+
+/* EDUCATION */
+
+.timeline{
+    position:relative;
+    border-left:2px solid var(--gold);
+    margin-left:10px;
+    padding-left:30px;
+}
+
+.timeline-item{
+    position:relative;
+    background:white;
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    margin-bottom:22px;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:var(--gold);
+    border:4px solid var(--bg);
+    border-radius:50%;
+    left:-39px;
+    top:29px;
+}
+
+.year{
+    color:var(--gold);
+    font-size:13px;
+    font-weight:bold;
+}
+
+.timeline-item h3{
+    margin:6px 0;
+    color:var(--dark);
+}
+
+.timeline-item p{
+    color:var(--muted);
+}
+
+/* SKILLS */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skill{
+    background:white;
+    border:1px solid var(--border);
+    padding:12px 17px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+}
+
+/* CERTIFICATES */
+
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.cert{
+    background:white;
+    padding:28px;
+    border-radius:20px;
+    border:1px solid var(--border);
+}
+
+.cert-icon{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.cert h3{
+    margin-bottom:8px;
+    color:var(--dark);
+}
+
+.cert p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* RESUME */
+
+.resume-box{
+    background:var(--dark);
+    color:white;
+    padding:45px;
+    border-radius:25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.resume-box h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.resume-box p{
+    color:#bbb;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:2000;
+    padding:20px;
+    overflow:auto;
+}
+
+.modal-content{
+    background:white;
+    max-width:650px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:15px;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-family:inherit;
+}
+
+.form-group textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.contact-card{
+    background:white;
+    border:1px solid var(--border);
+    padding:30px;
+    border-radius:20px;
+}
+
+.contact-card h3{
+    margin-bottom:8px;
+}
+
+.contact-card p{
+    color:var(--muted);
+}
+
+.contact-link{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+.contact-link:hover{
+    color:var(--gold);
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:white;
+    padding:45px 0;
+    text-align:center;
+}
+
+footer h3{
+    font-size:24px;
+}
+
+footer p{
+    color:#aaa;
+    margin-top:8px;
+}
+
+.footer-line{
+    height:1px;
+    background:#333;
+    margin:25px 0;
+}
+
+.trademark{
+    color:var(--gold);
+    font-weight:bold;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:56px;
+    height:56px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    z-index:1500;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .photo-main{
+        width:88%;
+        max-height:550px;
+    }
+
+    .photo-small{
+        left:2%;
+        bottom:20px;
+        height:150px;
+    }
+
+    section{
+        padding:65px 0;
+    }
+
+    .cert-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .resume-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+@media print{
+
+    nav,
+    .buttons,
+    .whatsapp,
+    footer,
+    .resume-box{
+        display:none !important;
+    }
+
+    body{
+        background:white;
+    }
+
+    section{
+        padding:30px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+<div class="container nav-inner">
+
+<div class="logo">
+Mohd <span>Suhail</span>
+</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#certificates">Certificates</a>
+<a href="#contact">Contact</a>
+</div>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">PERSONAL PORTFOLIO • 2026</div>
+
+<h1>
+Mohd <span>Suhail</span>
+</h1>
+
+<p>
+BCA Graduate • Technology Enthusiast • Aspiring Data Analyst
+</p>
+
+<p>
+Welcome to my personal website — a place where I showcase my education,
+technical skills, certificates, achievements and professional journey.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-dark" href="#education">
+Explore My Journey
+</a>
+
+<button class="btn btn-light" onclick="openResume()">
+Create My Resume
+</button>
+
+</div>
+
+</div>
+
+
+<div class="photo-box">
+
+<img src="photo1.jpg" class="photo-main" alt="Mohd Suhail">
+
+<img src="photo2.jpg" class="photo-small" alt="Mohd Suhail">
+
+</div>
+
+</div>
+</header>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">01 — About Me</div>
+<h2>A little about me.</h2>
+</div>
+
+<div class="about-card">
+
+<p>
+I am <strong>Mohd Suhail</strong>, a BCA graduate with an interest in
+technology, programming, data analytics and modern digital tools.
+I have completed my academic journey with a Bachelor of Computer
+Applications and additional IT education.
+</p>
+
+<br>
+
+<p>
+My goal is to continuously improve my technical knowledge and build
+practical projects that combine technology, data and modern AI tools.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">02 — Education</div>
+<h2>My academic journey.</h2>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="year">2021</div>
+<h3>Class 10th — UP Board</h3>
+<p>
+Pickett Inter College, Khatauli, Muzaffarnagar – 251201
+</p>
+</div>
+
+<div class="timeline-item">
+<div class="year">2023</div>
+<h3>Class 12th — UP Board</h3>
+<p>
+Pickett Inter College, Khatauli, Muzaffarnagar – 251201
+</p>
+</div>
+
+<div class="timeline-item">
+<div class="year">2020 — 2022</div>
+<h3>Scout & Guide — A and B Camp</h3>
+<p>
+A Camp — 2020<br>
+B Camp — 2022<br>
+Pickett Inter College, Khatauli, Muzaffarnagar – 251201
+</p>
+</div>
+
+<div class="timeline-item">
+<div class="year">2023 — 2024</div>
+<h3>ADIT — Advanced Diploma in Information Technology</h3>
+<p>
+Information Technology & Computer (ITC), Tehsil Road,
+Khatauli, Muzaffarnagar – 251201
+</p>
+</div>
+
+<div class="timeline-item">
+<div class="year">2023 — 2026</div>
+<h3>BCA — Bachelor of Computer Applications</h3>
+<p>
+Shri Ram Group of Colleges (SRGC), Muzaffarnagar – 251001
+<br>
+Affiliated with Maa Shakumbhari University, Saharanpur
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">03 — Skills</div>
+<h2>Technical skills.</h2>
+<p>
+Technologies, programming languages and computer applications I have studied.
+</p>
+</div>
+
+<div class="skills">
+
+<div class="skill">Tally ERP 9 — Basic</div>
+<div class="skill">C — Basic</div>
+<div class="skill">C — Advanced Basics</div>
+<div class="skill">Python — Basics</div>
+<div class="skill">Java — Basic</div>
+<div class="skill">HTML & CSS — Professional</div>
+<div class="skill">JavaScript — Basic</div>
+<div class="skill">PHP — Basic</div>
+<div class="skill">DBMS — Basic</div>
+<div class="skill">Data Structures — Basic</div>
+<div class="skill">MS Excel — Basic</div>
+<div class="skill">MS Word</div>
+<div class="skill">MS PowerPoint</div>
+<div class="skill">Computer Knowledge</div>
+<div class="skill">Operating Systems</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CERTIFICATES -->
+
+<section id="certificates">
+
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">04 — Achievements</div>
+<h2>Certificates & achievements.</h2>
+</div>
+
+<div class="cert-grid">
+
+<div class="cert">
+<div class="cert-icon">🏆</div>
+<h3>ADIT Certificate</h3>
+<p>
+Advanced Diploma in Information Technology — ITC,
+Khatauli, Muzaffarnagar.
+</p>
+</div>
+
+<div class="cert">
+<div class="cert-icon">🎖️</div>
+<h3>Scout & Guide — A Camp</h3>
+<p>
+Scout & Guide A Camp certificate — 2020.
+</p>
+</div>
+
+<div class="cert">
+<div class="cert-icon">🎖️</div>
+<h3>Scout & Guide — B Camp</h3>
+<p>
+Scout & Guide B Camp certificate — 2022.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- RESUME -->
+
+<section>
+
+<div class="container">
+
+<div class="resume-box">
+
+<div>
+<h2>Need my resume?</h2>
+<p>
+Create a professional resume from my profile information.
+You can also print or save it as PDF.
+</p>
+</div>
+
+<button class="btn btn-light" onclick="openResume()">
+Create Resume
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+<div class="eyebrow">05 — Contact</div>
+<h2>Let's connect.</h2>
+<p>
+Have a question, opportunity or message? Send it directly.
+</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3>Get in touch</h3>
+
+<p>
+For professional opportunities, collaboration or general queries.
+</p>
+
+<a class="contact-link" href="mailto:s4850489@gmail.com">
+📧 s4850489@gmail.com
+</a>
+
+<a class="contact-link" href="tel:+919882140449">
+📞 +91 9882140449
+</a>
+
+<a class="contact-link" href="https://instagram.com/Suhail_saifi8082" target="_blank">
+📷 Instagram — @Suhail_saifi8082
+</a>
+
+<a class="contact-link"
+href="https://wa.me/919882140449?text=Hello%20Mohd%20Suhail"
+target="_blank">
+💬 WhatsApp
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<h3>Ask me something</h3>
+
+<form action="https://formspree.io/f/maewqgzy" method="POST">
+
+<div class="form-group">
+<label>Your Name</label>
+<input type="text" name="name" required>
+</div>
+
+<div class="form-group">
+<label>Your Email</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="form-group">
+<label>Your Question / Message</label>
+<textarea name="message" required></textarea>
+</div>
+
+<input type="hidden" name="_subject"
+value="New message from Mohd Suhail Portfolio">
+
+<button class="btn btn-dark" type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp"
+href="https://wa.me/919882140449?text=Hello%20Mohd%20Suhail"
+target="_blank"
+aria-label="WhatsApp">
+💬
+</a>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<h3>Mohd Suhail</h3>
+
+<p>
+Personal Portfolio • Education • Skills • Technology
+</p>
+
+<div class="footer-line"></div>
+
+<p>
+© 2026 <span class="trademark">Mohd Suhail™</span>
+</p>
+
+<p>
+Created & Designed by <strong>Mohd Suhail</strong>
+</p>
+
+<p>
+Made with HTML • CSS • JavaScript
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- RESUME MODAL -->
+
+<div class="modal" id="resumeModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeResume()">×</span>
+
+<h2 style="margin-bottom:5px;">Create My Resume</h2>
+
+<p style="color:#777;margin-bottom:20px;">
+Enter your details and generate a printable resume.
+</p>
+
+<form onsubmit="generateResume(event)">
+
+<div class="form-group">
+<label>Full Name</label>
+<input id="rname" value="Mohd Suhail" required>
+</div>
+
+<div class="form-group">
+<label>Phone</label>
+<input id="rphone" value="+91 9882140449" required>
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input id="remail" value="s4850489@gmail.com" required>
+</div>
+
+<div class="form-group">
+<label>Career / Profile</label>
+<input id="rprofile"
+value="BCA Graduate | Aspiring Data Analyst | Technology Enthusiast"
+required>
+</div>
+
+<div class="form-group">
+<label>Skills</label>
+<textarea id="rskills">HTML & CSS, Python Basics, JavaScript Basics, C, Java, PHP, DBMS, Data Structures, MS Excel, MS Word, PowerPoint, Tally ERP 9</textarea>
+</div>
+
+<button class="btn btn-dark" type="submit">
+Generate Resume
+</button>
+
+</form>
+
+</div>
+</div>
+
+
+<script>
+
+function openResume(){
+    document.getElementById("resumeModal").style.display="block";
+}
+
+function closeResume(){
+    document.getElementById("resumeModal").style.display="none";
+}
+
+window.onclick=function(event){
+    const modal=document.getElementById("resumeModal");
+
+    if(event.target===modal){
+        closeResume();
+    }
+}
+
+function generateResume(event){
+
+    event.preventDefault();
+
+    const name=document.getElementById("rname").value;
+    const phone=document.getElementById("rphone").value;
+    const email=document.getElementById("remail").value;
+    const profile=document.getElementById("rprofile").value;
+    const skills=document.getElementById("rskills").value;
+
+    const resumeWindow=window.open("","_blank");
+
+    resumeWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>${name} - Resume</title>
+
+    <style>
+
+    body{
+        font-family:Arial,sans-serif;
+        max-width:850px;
+        margin:auto;
+        padding:50px;
+        color:#222;
+    }
+
+    h1{
+        font-size:38px;
+        margin-bottom:5px;
+    }
+
+    .contact{
+        color:#666;
+        margin-bottom:30px;
+    }
+
+    h2{
+        border-bottom:2px solid #111;
+        padding-bottom:7px;
+        margin-top:30px;
+    }
+
+    .profile{
+        color:#555;
+        line-height:1.7;
+    }
+
+    li{
+        margin-bottom:7px;
+    }
+
+    .skills{
+        line-height:2;
+    }
+
+    @media print{
+        body{
+            padding:20px;
+        }
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+    <h1>${name}</h1>
+
+    <div class="contact">
+    ${phone} • ${email}
+    </div>
+
+    <h2>Professional Profile</h2>
+
+    <p class="profile">
+    ${profile}
+    </p>
+
+    <h2>Education</h2>
+
+    <ul>
+    <li><strong>BCA — Bachelor of Computer Applications</strong> — Shri Ram Group of Colleges, Muzaffarnagar — 2023–2026</li>
+    <li><strong>ADIT — Advanced Diploma in Information Technology</strong> — ITC, Khatauli — 2023–2024</li>
+    <li><strong>Class 12th — UP Board</strong> — Pickett Inter College, Khatauli — 2023</li>
+    <li><strong>Class 10th — UP Board</strong> — Pickett Inter College, Khatauli — 2021</li>
+    </ul>
+
+    <h2>Technical Skills</h2>
+
+    <p class="skills">
+    ${skills}
+    </p>
+
+    <h2>Certificates & Achievements</h2>
+
+    <ul>
+    <li>Scout & Guide A Camp — 2020</li>
+    <li>Scout & Guide B Camp — 2022</li>
+    <li>ADIT Certificate — ITC</li>
+    </ul>
+
+    <br><br>
+
+    <button onclick="window.print()">
+    Print / Save as PDF
+    </button>
+
+    </body>
+    </html>
+    `);
+
+    resumeWindow.document.close();
+}
+
+</script>
+
+</body>
+</html>
