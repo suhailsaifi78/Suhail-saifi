@@ -1,1159 +1,3721 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mohd Suhail | Personal Portfolio</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Official personal portfolio of Mohd Suhail — BCA Graduate, Technology Enthusiast and Aspiring Data Analyst.">
+<title>Mohd Suhail | Data Analyst & Gen AI</title>
+
+<meta name="description"
+content="Mohd Suhail — Data Analyst, Generative AI Enthusiast and Web Developer.">
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+
+/* =====================================================
+   ROOT
+===================================================== */
 
 :root{
-    --bg:#f5f1ea;
-    --card:#ffffff;
-    --dark:#111111;
-    --text:#292929;
-    --muted:#777;
-    --gold:#b08d57;
-    --border:#e5dfd5;
+
+    --bg:#07080c;
+    --bg2:#0d1017;
+
+    --card:rgba(255,255,255,.055);
+    --card2:rgba(255,255,255,.085);
+
+    --text:#f5f7fb;
+    --muted:#9ca3af;
+
+    --line:rgba(255,255,255,.10);
+
+    --accent:#7c5cff;
+    --accent2:#00d4ff;
+
+    --success:#31e981;
+    --danger:#ff5d73;
+
+    --shadow:
+        0 25px 70px rgba(0,0,0,.45);
+
+    --radius:24px;
+
+}
+
+.light{
+
+    --bg:#f5f7fb;
+    --bg2:#ffffff;
+
+    --card:rgba(0,0,0,.045);
+    --card2:rgba(0,0,0,.075);
+
+    --text:#111827;
+    --muted:#5f6673;
+
+    --line:rgba(0,0,0,.10);
+
+    --shadow:
+        0 20px 60px rgba(0,0,0,.12);
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+    scroll-behavior:smooth;
+
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:var(--bg);
+
+    font-family:
+        Inter,
+        Segoe UI,
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(124,92,255,.15),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(0,212,255,.10),
+            transparent 28%
+        ),
+
+        var(--bg);
+
     color:var(--text);
-    line-height:1.6;
+
+    overflow-x:hidden;
+
 }
 
 a{
-    text-decoration:none;
+
     color:inherit;
+
+    text-decoration:none;
+
+}
+
+button,
+input,
+textarea{
+
+    font-family:inherit;
+
 }
 
 .container{
-    width:92%;
-    max-width:1150px;
+
+    width:min(1120px,92%);
+
     margin:auto;
+
 }
 
-/* NAVBAR */
 
-nav{
-    position:sticky;
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.bg-orb{
+
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    opacity:.12;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+.orb1{
+
+    background:#7c5cff;
+
+    top:10%;
+
+    left:-100px;
+
+}
+
+.orb2{
+
+    background:#00d4ff;
+
+    right:-100px;
+
+    top:55%;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+header{
+
+    position:fixed;
+
     top:0;
+    left:0;
+
+    width:100%;
+
     z-index:1000;
-    background:rgba(245,241,234,.94);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(7,8,12,.68);
+
+    border-bottom:1px solid var(--line);
+
 }
 
-.nav-inner{
-    height:70px;
+.light header{
+
+    background:rgba(255,255,255,.75);
+
+}
+
+.nav{
+
+    height:72px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
 
 .logo{
-    font-size:20px;
+
+    font-size:21px;
+
     font-weight:800;
+
     letter-spacing:-.5px;
+
 }
 
 .logo span{
-    color:var(--gold);
+
+    color:var(--accent);
+
 }
 
 .nav-links{
+
     display:flex;
-    gap:25px;
+
+    gap:26px;
+
+    align-items:center;
+
+}
+
+.nav-links a{
+
+    color:var(--muted);
+
     font-size:14px;
-    font-weight:600;
+
+    transition:.25s;
+
 }
 
 .nav-links a:hover{
-    color:var(--gold);
+
+    color:var(--text);
+
 }
 
-/* HERO */
+.nav-actions{
+
+    display:flex;
+
+    gap:9px;
+
+}
+
+.icon-btn{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:1px solid var(--line);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.menu{
+
+    display:none;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
-    min-height:calc(100vh - 70px);
+
+    min-height:100vh;
+
     display:flex;
+
     align-items:center;
-    padding:70px 0;
+
+    padding-top:90px;
+
 }
 
 .hero-grid{
+
     display:grid;
-    grid-template-columns:1.1fr .9fr;
+
+    grid-template-columns:1.25fr .75fr;
+
     gap:60px;
+
     align-items:center;
+
 }
 
 .badge{
-    display:inline-block;
-    border:1px solid var(--gold);
-    color:#866b42;
-    padding:7px 14px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:20px;
-    letter-spacing:1px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    border:1px solid var(--line);
+
+    background:var(--card);
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+}
+
+.dot{
+
+    width:8px;
+
+    height:8px;
+
+    background:var(--success);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 14px var(--success);
+
 }
 
 .hero h1{
-    font-size:clamp(42px,7vw,78px);
+
+    font-size:
+        clamp(44px,7vw,78px);
+
     line-height:.98;
-    letter-spacing:-3px;
-    color:var(--dark);
-    margin-bottom:25px;
+
+    letter-spacing:-4px;
+
+    margin-bottom:22px;
+
 }
 
-.hero h1 span{
-    color:var(--gold);
+.gradient{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--accent2)
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
 }
 
 .hero p{
-    font-size:18px;
+
     color:var(--muted);
-    max-width:620px;
-    margin-bottom:30px;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    max-width:650px;
+
 }
 
 .buttons{
+
     display:flex;
+
     gap:12px;
+
     flex-wrap:wrap;
+
+    margin-top:30px;
+
 }
 
 .btn{
-    padding:13px 21px;
-    border-radius:10px;
-    font-weight:bold;
-    border:1px solid var(--dark);
-    transition:.3s;
+
+    padding:13px 20px;
+
+    border-radius:14px;
+
+    border:1px solid var(--line);
+
+    background:var(--card);
+
+    color:var(--text);
+
     cursor:pointer;
-    display:inline-block;
+
+    font-weight:600;
+
+    transition:.3s;
+
 }
 
-.btn-dark{
-    background:var(--dark);
-    color:white;
-}
+.btn:hover{
 
-.btn-dark:hover{
     transform:translateY(-3px);
+
 }
 
-.btn-light{
-    background:white;
+.btn-primary{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            #5940e8
+        );
+
+    border:none;
+
+    color:white;
+
+    box-shadow:
+        0 10px 35px
+        rgba(124,92,255,.28);
+
 }
 
-.btn-light:hover{
-    border-color:var(--gold);
-    color:var(--gold);
-}
 
-/* PHOTO */
+/* =====================================================
+   PROFILE
+===================================================== */
 
-.photo-box{
+.profile-card{
+
     position:relative;
-    display:flex;
-    justify-content:center;
+
+    padding:35px;
+
+    border:1px solid var(--line);
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--card2),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+
+    overflow:hidden;
+
 }
 
-.photo-main{
-    width:82%;
-    max-height:620px;
-    object-fit:cover;
-    border-radius:24px;
-    box-shadow:0 25px 60px rgba(0,0,0,.16);
+.avatar{
+
+    width:145px;
+
+    height:145px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent2)
+        );
+
+    font-size:42px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 0 60px
+        rgba(124,92,255,.35);
+
 }
 
-.photo-small{
-    position:absolute;
-    width:34%;
-    height:190px;
-    object-fit:cover;
-    bottom:25px;
-    left:0;
-    border:7px solid var(--bg);
+.profile-card h3{
+
+    margin-top:22px;
+
+    font-size:24px;
+
+}
+
+.profile-card p{
+
+    color:var(--muted);
+
+    margin-top:7px;
+
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+    margin-top:18px;
+
+}
+
+.stat{
+
+    padding:18px;
+
+    border:1px solid var(--line);
+
     border-radius:18px;
-    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+    background:var(--card);
+
 }
 
-/* SECTIONS */
+.stat strong{
+
+    display:block;
+
+    font-size:25px;
+
+}
+
+.stat span{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 section{
-    padding:90px 0;
+
+    padding:100px 0;
+
 }
 
-.section-title{
+.section-head{
+
     margin-bottom:45px;
+
 }
 
 .eyebrow{
-    color:var(--gold);
-    font-size:12px;
-    font-weight:bold;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:10px;
-}
 
-.section-title h2{
-    font-size:clamp(32px,5vw,52px);
-    color:var(--dark);
-    letter-spacing:-2px;
-}
+    color:var(--accent2);
 
-.section-title p{
-    color:var(--muted);
-    max-width:650px;
-    margin-top:10px;
-}
-
-/* ABOUT */
-
-.about-card{
-    background:var(--card);
-    padding:35px;
-    border-radius:22px;
-    border:1px solid var(--border);
-}
-
-.about-card p{
-    color:#555;
-    font-size:17px;
-}
-
-/* EDUCATION */
-
-.timeline{
-    position:relative;
-    border-left:2px solid var(--gold);
-    margin-left:10px;
-    padding-left:30px;
-}
-
-.timeline-item{
-    position:relative;
-    background:white;
-    padding:25px;
-    border:1px solid var(--border);
-    border-radius:18px;
-    margin-bottom:22px;
-}
-
-.timeline-item::before{
-    content:"";
-    position:absolute;
-    width:12px;
-    height:12px;
-    background:var(--gold);
-    border:4px solid var(--bg);
-    border-radius:50%;
-    left:-39px;
-    top:29px;
-}
-
-.year{
-    color:var(--gold);
     font-size:13px;
-    font-weight:bold;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
 }
 
-.timeline-item h3{
-    margin:6px 0;
-    color:var(--dark);
+.section-head h2{
+
+    font-size:
+        clamp(30px,5vw,48px);
+
+    letter-spacing:-2px;
+
 }
 
-.timeline-item p{
+.section-head p{
+
     color:var(--muted);
+
+    margin-top:12px;
+
 }
 
-/* SKILLS */
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card{
+
+    border:1px solid var(--line);
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:28px;
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    background:var(--card2);
+
+}
+
+.card h3{
+
+    margin-bottom:12px;
+
+}
+
+.card p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:20px;
+
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
 
 .skills{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:12px;
+
 }
 
 .skill{
-    background:white;
-    border:1px solid var(--border);
-    padding:12px 17px;
-    border-radius:50px;
-    font-size:14px;
-    font-weight:600;
-    transition:.3s;
+
+    padding:12px 16px;
+
+    border-radius:12px;
+
+    border:1px solid var(--line);
+
+    background:var(--card);
+
+    color:var(--muted);
+
+    transition:.25s;
+
 }
 
 .skill:hover{
+
+    color:var(--text);
+
+    border-color:var(--accent);
+
     transform:translateY(-3px);
-    border-color:var(--gold);
+
 }
 
-/* CERTIFICATES */
 
-.cert-grid{
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.project-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
 }
 
-.cert{
-    background:white;
-    padding:28px;
-    border-radius:20px;
-    border:1px solid var(--border);
-}
+.project-image{
 
-.cert-icon{
-    font-size:30px;
-    margin-bottom:15px;
-}
+    height:170px;
 
-.cert h3{
-    margin-bottom:8px;
-    color:var(--dark);
-}
+    border-radius:18px;
 
-.cert p{
-    color:var(--muted);
-    font-size:14px;
-}
+    background:
 
-/* RESUME */
+        linear-gradient(
+            135deg,
+            rgba(124,92,255,.7),
+            rgba(0,212,255,.35)
+        );
 
-.resume-box{
-    background:var(--dark);
-    color:white;
-    padding:45px;
-    border-radius:25px;
     display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-}
 
-.resume-box h2{
-    font-size:35px;
-    margin-bottom:10px;
-}
+    align-items:flex-end;
 
-.resume-box p{
-    color:#bbb;
-}
-
-/* MODAL */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:2000;
     padding:20px;
-    overflow:auto;
+
+    font-size:30px;
+
 }
 
-.modal-content{
-    background:white;
-    max-width:650px;
-    margin:30px auto;
-    padding:30px;
-    border-radius:20px;
+.project h3{
+
+    margin-top:20px;
+
+}
+
+.project p{
+
+    margin:9px 0 18px;
+
+}
+
+.tags{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+}
+
+.tag{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+    border:1px solid var(--line);
+
+    padding:5px 9px;
+
+    border-radius:7px;
+
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+.timeline{
+
+    border-left:
+        1px solid var(--line);
+
+    margin-left:8px;
+
+}
+
+.timeline-item{
+
     position:relative;
+
+    padding:
+        0 0 35px 30px;
+
 }
 
-.close{
+.timeline-item::before{
+
+    content:"";
+
     position:absolute;
-    right:20px;
-    top:15px;
-    font-size:25px;
-    cursor:pointer;
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    left:-6px;
+
+    top:4px;
+
+    box-shadow:
+        0 0 20px var(--accent);
+
 }
 
-.form-group{
-    margin-bottom:16px;
+.timeline-item h3{
+
+    margin-bottom:5px;
+
 }
 
-.form-group label{
-    display:block;
+.timeline-item span{
+
+    color:var(--accent2);
+
     font-size:13px;
-    font-weight:bold;
-    margin-bottom:6px;
+
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select{
+.timeline-item p{
+
+    color:var(--muted);
+
+    margin-top:8px;
+
+}
+
+
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
+
+.achievement-feature{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:25px;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    padding:25px;
+
+    border:
+        1px solid
+        rgba(124,92,255,.35);
+
+    border-radius:28px;
+
+    background:
+
+        radial-gradient(
+            circle at top right,
+            rgba(124,92,255,.18),
+            transparent 35%
+        ),
+
+        var(--card);
+
+    box-shadow:var(--shadow);
+
+}
+
+.achievement-feature-image{
+
+    min-height:300px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(124,92,255,.25),
+            rgba(0,212,255,.12)
+        );
+
+    border:1px solid var(--line);
+
+    overflow:hidden;
+
+}
+
+.achievement-feature-image img{
+
     width:100%;
-    padding:13px;
-    border:1px solid #ddd;
+
+    height:300px;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.achievement-feature-image img:hover{
+
+    transform:scale(1.04);
+
+}
+
+.achievement-feature-content{
+
+    padding:10px;
+
+}
+
+.achievement-badge{
+
+    display:inline-block;
+
+    padding:7px 12px;
+
+    border-radius:999px;
+
+    background:
+        rgba(124,92,255,.12);
+
+    border:
+        1px solid
+        rgba(124,92,255,.3);
+
+    color:var(--accent2);
+
+    font-size:12px;
+
+    margin-bottom:15px;
+
+}
+
+.achievement-feature h3{
+
+    font-size:30px;
+
+    margin-bottom:12px;
+
+}
+
+.achievement-feature p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+.achievement-card{
+
+    padding:16px;
+
+    overflow:hidden;
+
+}
+
+.achievement-image{
+
+    height:180px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(124,92,255,.18),
+            rgba(0,212,255,.08)
+        );
+
+    border:1px solid var(--line);
+
+}
+
+.achievement-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.achievement-image img:hover{
+
+    transform:scale(1.06);
+
+}
+
+.achievement-card h3{
+
+    font-size:17px;
+
+    margin-top:17px;
+
+    margin-bottom:7px;
+
+}
+
+.achievement-card p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+.view-certificate{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:var(--accent2);
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+/* =====================================================
+   CERTIFICATE MODAL
+===================================================== */
+
+.certificate-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        rgba(0,0,0,.88);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.certificate-modal.show{
+
+    display:flex;
+
+}
+
+.certificate-modal img{
+
+    max-width:95%;
+
+    max-height:90vh;
+
+    object-fit:contain;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.6);
+
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    background:
+        rgba(255,255,255,.1);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   AI
+===================================================== */
+
+.ai-wrap{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.ai-card{
+
+    border:
+        1px solid
+        rgba(124,92,255,.3);
+
+    background:
+
+        radial-gradient(
+            circle at top right,
+            rgba(124,92,255,.14),
+            transparent 30%
+        ),
+
+        var(--card);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.ai-top{
+
+    padding:22px;
+
+    border-bottom:1px solid var(--line);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+}
+
+.ai-icon{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:14px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent2)
+        );
+
+    font-size:21px;
+
+}
+
+.ai-top strong{
+
+    display:block;
+
+}
+
+.ai-top small{
+
+    color:var(--success);
+
+}
+
+.chat{
+
+    height:390px;
+
+    padding:22px;
+
+    overflow-y:auto;
+
+}
+
+.message{
+
+    max-width:82%;
+
+    padding:13px 16px;
+
+    border-radius:17px;
+
+    margin-bottom:13px;
+
+    line-height:1.65;
+
+    font-size:14px;
+
+}
+
+.bot{
+
+    background:var(--card2);
+
+    border:1px solid var(--line);
+
+}
+
+.user{
+
+    margin-left:auto;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--accent),
+            #5940e8
+        );
+
+    color:white;
+
+}
+
+.typing{
+
+    opacity:.7;
+
+}
+
+.quick{
+
+    padding:
+        0 22px 15px;
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+}
+
+.quick button{
+
+    border:1px solid var(--line);
+
+    background:var(--card);
+
+    color:var(--muted);
+
+    padding:8px 11px;
+
     border-radius:10px;
-    font-family:inherit;
+
+    cursor:pointer;
+
 }
 
-.form-group textarea{
-    min-height:100px;
-    resize:vertical;
+.chat-input{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:15px;
+
+    border-top:1px solid var(--line);
+
 }
 
-/* CONTACT */
+.chat-input input{
+
+    flex:1;
+
+    border:1px solid var(--line);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    padding:14px;
+
+    border-radius:13px;
+
+    outline:none;
+
+}
+
+.send{
+
+    width:50px;
+
+    border:none;
+
+    border-radius:13px;
+
+    background:var(--accent);
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:20px;
+
 }
 
-.contact-card{
-    background:white;
-    border:1px solid var(--border);
-    padding:30px;
-    border-radius:20px;
+.contact-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+
 }
 
-.contact-card h3{
-    margin-bottom:8px;
+.contact-form input,
+.contact-form textarea{
+
+    width:100%;
+
+    border:
+        1px solid
+        var(--line);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    padding:14px;
+
+    border-radius:13px;
+
+    outline:none;
+
 }
 
-.contact-card p{
+.contact-form textarea{
+
+    min-height:140px;
+
+    resize:vertical;
+
+}
+
+.contact-status{
+
+    min-height:20px;
+
+    font-size:13px;
+
+}
+
+.success{
+
+    color:var(--success);
+
+}
+
+.error{
+
+    color:var(--danger);
+
+}
+
+.contact-item{
+
+    padding:17px 0;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+}
+
+.contact-item span{
+
     color:var(--muted);
-}
 
-.contact-link{
     display:block;
-    margin-top:12px;
-    font-weight:bold;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+
 }
 
-.contact-link:hover{
-    color:var(--gold);
-}
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
-    background:#111;
-    color:white;
-    padding:45px 0;
-    text-align:center;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    padding:30px 0;
+
+    color:var(--muted);
+
+    font-size:13px;
+
 }
 
-footer h3{
-    font-size:24px;
-}
+.footer-flex{
 
-footer p{
-    color:#aaa;
-    margin-top:8px;
-}
-
-.footer-line{
-    height:1px;
-    background:#333;
-    margin:25px 0;
-}
-
-.trademark{
-    color:var(--gold);
-    font-weight:bold;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    width:56px;
-    height:56px;
-    background:#25D366;
-    color:white;
-    border-radius:50%;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    z-index:1500;
-    box-shadow:0 8px 25px rgba(0,0,0,.2);
+
+    justify-content:space-between;
+
+    gap:20px;
+
 }
 
-/* MOBILE */
 
-@media(max-width:800px){
+/* =====================================================
+   ANIMATION
+===================================================== */
 
-    .nav-links{
-        display:none;
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:.7s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:900px){
+
+    .achievement-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
     }
 
-    .hero{
-        padding:50px 0;
+}
+
+@media(max-width:850px){
+
+    .nav-links{
+
+        position:absolute;
+
+        top:72px;
+
+        left:4%;
+
+        width:92%;
+
+        display:none;
+
+        flex-direction:column;
+
+        padding:20px;
+
+        border:
+            1px solid
+            var(--line);
+
+        background:var(--bg2);
+
+        border-radius:18px;
+
+    }
+
+    .nav-links.open{
+
+        display:flex;
+
+    }
+
+    .menu{
+
+        display:block;
+
     }
 
     .hero-grid{
+
         grid-template-columns:1fr;
-        gap:45px;
+
+        text-align:center;
+
+    }
+
+    .hero p{
+
+        margin:auto;
+
+    }
+
+    .buttons{
+
+        justify-content:center;
+
+    }
+
+    .profile-card{
+
+        max-width:400px;
+
+        margin:auto;
+
+    }
+
+    .about-grid,
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .project-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-flex{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    .achievement-feature{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .achievement-feature-image,
+    .achievement-feature-image img{
+
+        min-height:220px;
+
+        height:220px;
+
+    }
+
+    .achievement-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    section{
+
+        padding:75px 0;
+
     }
 
     .hero h1{
-        font-size:50px;
+
+        letter-spacing:-2.5px;
+
     }
 
-    .photo-main{
-        width:88%;
-        max-height:550px;
-    }
+    .stats{
 
-    .photo-small{
-        left:2%;
-        bottom:20px;
-        height:150px;
-    }
-
-    section{
-        padding:65px 0;
-    }
-
-    .cert-grid{
         grid-template-columns:1fr;
+
     }
 
-    .contact-grid{
-        grid-template-columns:1fr;
+    .message{
+
+        max-width:92%;
+
     }
 
-    .resume-box{
-        flex-direction:column;
-        align-items:flex-start;
-    }
 }
 
-@media print{
-
-    nav,
-    .buttons,
-    .whatsapp,
-    footer,
-    .resume-box{
-        display:none !important;
-    }
-
-    body{
-        background:white;
-    }
-
-    section{
-        padding:30px 0;
-    }
-}
 </style>
+
 </head>
+
 
 <body>
 
-<!-- NAVIGATION -->
 
-<nav>
-<div class="container nav-inner">
+<div class="bg-orb orb1"></div>
 
-<div class="logo">
-Mohd <span>Suhail</span>
-</div>
+<div class="bg-orb orb2"></div>
 
-<div class="nav-links">
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header>
+
+<div class="container nav">
+
+
+<a href="#home" class="logo">
+
+SUHAIL<span>.</span>
+
+</a>
+
+
+<nav class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
+
 <a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#skills">Skills</a>
-<a href="#certificates">Certificates</a>
-<a href="#contact">Contact</a>
-</div>
 
-</div>
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#education">Education</a>
+
+<a href="#achievements">
+Achievements
+</a>
+
+<a href="#ai">Suhail AI</a>
+
+<a href="#contact">Contact</a>
+
 </nav>
 
 
-<!-- HERO -->
+<div class="nav-actions">
 
-<header class="hero">
-<div class="container hero-grid">
+<button
+class="icon-btn"
+id="themeBtn"
+>
+☾
+</button>
 
-<div>
-
-<div class="badge">PERSONAL PORTFOLIO • 2026</div>
-
-<h1>
-Mohd <span>Suhail</span>
-</h1>
-
-<p>
-BCA Graduate • Technology Enthusiast • Aspiring Data Analyst
-</p>
-
-<p>
-Welcome to my personal website — a place where I showcase my education,
-technical skills, certificates, achievements and professional journey.
-</p>
-
-<div class="buttons">
-
-<a class="btn btn-dark" href="#education">
-Explore My Journey
-</a>
-
-<button class="btn btn-light" onclick="openResume()">
-Create My Resume
+<button
+class="icon-btn menu"
+id="menuBtn"
+>
+☰
 </button>
 
 </div>
 
-</div>
-
-
-<div class="photo-box">
-
-<img src="/storage/emulated/0/otg/DDC_1670(1)(1).jpg" class="photo-main" alt="Mohd Suhail">
-
-<img src="DSC_1670 (1) (1).JPG" class="photo-small" alt="Mohd Suhail">
 
 </div>
 
-</div>
 </header>
 
 
-<!-- ABOUT -->
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+
+<div class="reveal">
+
+
+<div class="badge">
+
+<span class="dot"></span>
+
+Available for opportunities
+
+</div>
+
+
+<h1>
+
+Hi, I'm<br>
+
+<span class="gradient">
+Mohd Suhail.
+</span>
+
+</h1>
+
+
+<p>
+
+Data Analyst & Gen AI enthusiast focused
+on turning data into meaningful insights
+and building modern digital experiences.
+
+</p>
+
+
+<div class="buttons">
+
+<a
+href="#projects"
+class="btn btn-primary"
+>
+
+Explore Projects →
+
+</a>
+
+
+<a
+href="#contact"
+class="btn"
+>
+
+Contact Me
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="profile-card reveal">
+
+
+<div class="avatar">
+
+MS
+
+</div>
+
+
+<h3>
+Mohd Suhail
+</h3>
+
+
+<p>
+Data Analyst • Gen AI • Web
+</p>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<strong>
+3+
+</strong>
+
+<span>
+Core Areas
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+10+
+</strong>
+
+<span>
+Skills
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+∞
+</strong>
+
+<span>
+Learning
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
 <section id="about">
 
 <div class="container">
 
-<div class="section-title">
-<div class="eyebrow">01 — About Me</div>
-<h2>A little about me.</h2>
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+About Me
 </div>
 
-<div class="about-card">
+<h2>
+Building skills for the data-driven future.
+</h2>
 
 <p>
-I am <strong>Mohd Suhail</strong>, a BCA graduate with an interest in
-technology, programming, data analytics and modern digital tools.
-I have completed my academic journey with a Bachelor of Computer
-Applications and additional IT education.
-</p>
-
-<br>
-
-<p>
-My goal is to continuously improve my technical knowledge and build
-practical projects that combine technology, data and modern AI tools.
+A quick overview of my professional journey.
 </p>
 
 </div>
 
+
+<div class="about-grid">
+
+
+<div class="card reveal">
+
+<h3>
+Who I Am
+</h3>
+
+<p>
+
+I'm Mohd Suhail, a BCA graduate interested
+in Data Analytics, Generative AI and modern
+web technologies. I enjoy learning practical
+technologies and building useful projects.
+
+</p>
+
 </div>
+
+
+<div class="card reveal">
+
+<h3>
+My Goal
+</h3>
+
+<p>
+
+My goal is to grow as a Data Analyst while
+combining analytics, automation and
+Generative AI to solve real-world problems.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- EDUCATION -->
-
-<section id="education">
-
-<div class="container">
-
-<div class="section-title">
-<div class="eyebrow">02 — Education</div>
-<h2>My academic journey.</h2>
-</div>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<div class="year">2021</div>
-<h3>Class 10th — UP Board</h3>
-<p>
-Pickett Inter College, Khatauli, Muzaffarnagar – 251201
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="year">2023</div>
-<h3>Class 12th — UP Board</h3>
-<p>
-Pickett Inter College, Khatauli, Muzaffarnagar – 251201
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="year">2020 — 2022</div>
-<h3>Scout & Guide — A and B Camp</h3>
-<p>
-A Camp — 2020<br>
-B Camp — 2022<br>
-Pickett Inter College, Khatauli, Muzaffarnagar – 251201
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="year">2023 — 2024</div>
-<h3>ADIT — Advanced Diploma in Information Technology</h3>
-<p>
-Information Technology & Computer (ITC), Tehsil Road,
-Khatauli, Muzaffarnagar – 251201
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="year">2023 — 2026</div>
-<h3>BCA — Bachelor of Computer Applications</h3>
-<p>
-Shri Ram Group of Colleges (SRGC), Muzaffarnagar – 251001
-<br>
-Affiliated with Maa Shakumbhari University, Saharanpur
-</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- SKILLS -->
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
 <section id="skills">
 
 <div class="container">
 
-<div class="section-title">
-<div class="eyebrow">03 — Skills</div>
-<h2>Technical skills.</h2>
-<p>
-Technologies, programming languages and computer applications I have studied.
-</p>
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+Skills
 </div>
 
-<div class="skills">
-
-<div class="skill">Tally ERP 9 — Basic</div>
-<div class="skill">C — Basic</div>
-<div class="skill">C — Advanced Basics</div>
-<div class="skill">Python — Basics</div>
-<div class="skill">Java — Basic</div>
-<div class="skill">HTML & CSS — Professional</div>
-<div class="skill">JavaScript — Basic</div>
-<div class="skill">PHP — Basic</div>
-<div class="skill">DBMS — Basic</div>
-<div class="skill">Data Structures — Basic</div>
-<div class="skill">MS Excel — Basic</div>
-<div class="skill">MS Word</div>
-<div class="skill">MS PowerPoint</div>
-<div class="skill">Computer Knowledge</div>
-<div class="skill">Operating Systems</div>
+<h2>
+My technical toolkit.
+</h2>
 
 </div>
 
+
+<div class="skills reveal">
+
+<div class="skill">Python</div>
+
+<div class="skill">SQL</div>
+
+<div class="skill">
+Microsoft Excel
 </div>
+
+<div class="skill">Power BI</div>
+
+<div class="skill">HTML</div>
+
+<div class="skill">CSS</div>
+
+<div class="skill">
+JavaScript
+</div>
+
+<div class="skill">
+Data Analytics
+</div>
+
+<div class="skill">
+Generative AI
+</div>
+
+<div class="skill">
+C Programming
+</div>
+
+<div class="skill">
+MS Office
+</div>
+
+<div class="skill">
+Tally ERP 9
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- CERTIFICATES -->
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
 
-<section id="certificates">
+<section id="projects">
 
 <div class="container">
 
-<div class="section-title">
-<div class="eyebrow">04 — Achievements</div>
-<h2>Certificates & achievements.</h2>
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+Projects
 </div>
 
-<div class="cert-grid">
+<h2>
+Things I've built.
+</h2>
 
-<div class="cert">
-<div class="cert-icon">🏆</div>
-<h3>ADIT Certificate</h3>
+</div>
+
+
+<div class="project-grid">
+
+
+<div class="card project reveal">
+
+<div class="project-image">
+📊
+</div>
+
+<h3>
+Data Analytics Dashboard
+</h3>
+
 <p>
-Advanced Diploma in Information Technology — ITC,
+
+Interactive dashboard concept for exploring
+business data and extracting useful insights.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">
+Excel
+</span>
+
+<span class="tag">
+Power BI
+</span>
+
+<span class="tag">
+Analytics
+</span>
+
+</div>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div class="project-image">
+🤖
+</div>
+
+<h3>
+Suhail AI
+</h3>
+
+<p>
+
+AI-powered personal assistant for answering
+questions about my professional profile.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">
+AI
+</span>
+
+<span class="tag">
+JavaScript
+</span>
+
+<span class="tag">
+API
+</span>
+
+</div>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div class="project-image">
+🌐
+</div>
+
+<h3>
+Personal Portfolio
+</h3>
+
+<p>
+
+Responsive professional portfolio designed
+for GitHub Pages.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">
+HTML
+</span>
+
+<span class="tag">
+CSS
+</span>
+
+<span class="tag">
+JavaScript
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<section id="education">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+Education
+</div>
+
+<h2>
+My academic journey.
+</h2>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item reveal">
+
+<span>
+2023 — 2026
+</span>
+
+<h3>
+Bachelor of Computer Applications — BCA
+</h3>
+
+<p>
+
+Maa Shakumbhari University,
+Shri Ram Group of Colleges,
+Muzaffarnagar.
+
+</p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<span>
+2023 — 2024
+</span>
+
+<h3>
+ADIT — Advanced Diploma in IT
+</h3>
+
+<p>
+
+Information Technology and Computer
+training with practical computer
+and software skills.
+
+</p>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<span>
+2023
+</span>
+
+<h3>
+Class XII — UP Board
+</h3>
+
+<p>
+
+Pickett Inter College,
 Khatauli, Muzaffarnagar.
+
 </p>
+
 </div>
 
-<div class="cert">
-<div class="cert-icon">🎖️</div>
-<h3>Scout & Guide — A Camp</h3>
+
+<div class="timeline-item reveal">
+
+<span>
+2021
+</span>
+
+<h3>
+Class X — UP Board
+</h3>
+
 <p>
-Scout & Guide A Camp certificate — 2020.
+
+Pickett Inter College,
+Khatauli, Muzaffarnagar.
+
 </p>
+
 </div>
 
-<div class="cert">
-<div class="cert-icon">🎖️</div>
-<h3>Scout & Guide — B Camp</h3>
-<p>
-Scout & Guide B Camp certificate — 2022.
-</p>
-</div>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- RESUME -->
+<!-- =====================================================
+     ACHIEVEMENTS
+===================================================== -->
 
-<section>
+<section id="achievements">
 
 <div class="container">
 
-<div class="resume-box">
 
-<div>
-<h2>Need my resume?</h2>
-<p>
-Create a professional resume from my profile information.
-You can also print or save it as PDF.
-</p>
+<div class="section-head reveal">
+
+<div class="eyebrow">
+Achievements & Certifications
 </div>
 
-<button class="btn btn-light" onclick="openResume()">
-Create Resume
+<h2>
+Certificates, awards & milestones.
+</h2>
+
+<p>
+
+A collection of academic achievements,
+training certificates and memorable milestones.
+
+</p>
+
+</div>
+
+
+<!-- FEATURED -->
+
+<div class="achievement-feature reveal">
+
+
+<div class="achievement-feature-image">
+
+<img
+src="images/adit-medal-trophy.jpg"
+alt="ADIT Medal and Trophy"
+onclick="openCertificate(this.src)"
+>
+
+</div>
+
+
+<div class="achievement-feature-content">
+
+
+<span class="achievement-badge">
+🏆 Featured Achievement
+</span>
+
+
+<h3>
+ADIT Medal & Trophy
+</h3>
+
+
+<p>
+
+A memorable achievement from my ADIT journey,
+representing dedication, learning and consistent
+performance during my technical education.
+
+</p>
+
+
+<div class="buttons">
+
+<button
+class="btn btn-primary"
+onclick="openCertificate(
+'images/adit-medal-trophy.jpg'
+)"
+>
+
+View Achievement →
+
 </button>
 
 </div>
 
+
+</div>
+
+</div>
+
+
+<!-- CERTIFICATE GRID -->
+
+<div class="achievement-grid">
+
+
+<!-- ADIT CERTIFICATE -->
+
+<div class="card achievement-card reveal">
+
+
+<div class="achievement-image">
+
+<img
+src="images/adit-certificate.jpg"
+alt="ADIT Certificate"
+onclick="openCertificate(this.src)"
+>
+
+</div>
+
+
+<h3>
+ADIT Certificate
+</h3>
+
+
+<p>
+
+Advanced Diploma in Information Technology
+certificate.
+
+</p>
+
+
+<a
+href="javascript:void(0)"
+class="view-certificate"
+onclick="openCertificate(
+'images/adit-certificate.jpg'
+)"
+>
+
+View Certificate →
+
+</a>
+
+
+</div>
+
+
+<!-- ADIT ACHIEVEMENT -->
+
+<div class="card achievement-card reveal">
+
+
+<div class="achievement-image">
+
+<img
+src="images/adit-achievement.jpg"
+alt="ADIT Achievement Certificate"
+onclick="openCertificate(this.src)"
+>
+
+</div>
+
+
+<h3>
+ADIT Achievement
+</h3>
+
+
+<p>
+
+Recognition received during the ADIT
+technical education journey.
+
+</p>
+
+
+<a
+href="javascript:void(0)"
+class="view-certificate"
+onclick="openCertificate(
+'images/adit-achievement.jpg'
+)"
+>
+
+View Certificate →
+
+</a>
+
+
+</div>
+
+
+<!-- A CAMP -->
+
+<div class="card achievement-card reveal">
+
+
+<div class="achievement-image">
+
+<img
+src="images/scout-guide-a-camp.jpg"
+alt="Scout Guide A Camp Certificate"
+onclick="openCertificate(this.src)"
+>
+
+</div>
+
+
+<h3>
+Scout & Guide — A Camp
+</h3>
+
+
+<p>
+
+Scout and Guide A Camp participation
+and achievement certificate.
+
+</p>
+
+
+<a
+href="javascript:void(0)"
+class="view-certificate"
+onclick="openCertificate(
+'images/scout-guide-a-camp.jpg'
+)"
+>
+
+View Certificate →
+
+</a>
+
+
+</div>
+
+
+<!-- B CAMP -->
+
+<div class="card achievement-card reveal">
+
+
+<div class="achievement-image">
+
+<img
+src="images/scout-guide-b-camp.jpg"
+alt="Scout Guide B Camp Certificate"
+onclick="openCertificate(this.src)"
+>
+
+</div>
+
+
+<h3>
+Scout & Guide — B Camp
+</h3>
+
+
+<p>
+
+Scout and Guide B Camp participation
+and achievement certificate.
+
+</p>
+
+
+<a
+href="javascript:void(0)"
+class="view-certificate"
+onclick="openCertificate(
+'images/scout-guide-b-camp.jpg'
+)"
+>
+
+View Certificate →
+
+</a>
+
+
+</div>
+
+
+</div>
+
 </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- =====================================================
+     AI
+===================================================== -->
+
+<section id="ai">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+AI Assistant
+</div>
+
+<h2>
+Meet Suhail AI.
+</h2>
+
+<p>
+
+Ask questions about my skills,
+education, projects, career or profile.
+
+</p>
+
+</div>
+
+
+<div class="ai-wrap">
+
+
+<div class="ai-card reveal">
+
+
+<div class="ai-top">
+
+
+<div class="ai-icon">
+✦
+</div>
+
+
+<div>
+
+<strong>
+Suhail AI
+</strong>
+
+<small>
+● Online AI Assistant
+</small>
+
+</div>
+
+
+</div>
+
+
+<div class="chat" id="chat">
+
+
+<div class="message bot">
+
+👋 Hi! I'm
+<strong>Suhail AI</strong>.
+
+Ask me anything about
+Mohd Suhail.
+
+</div>
+
+
+</div>
+
+
+<div class="quick">
+
+
+<button
+onclick="quickAsk(
+'Who is Mohd Suhail?'
+)"
+>
+
+Who is Suhail?
+
+</button>
+
+
+<button
+onclick="quickAsk(
+'What are Suhail skills?'
+)"
+>
+
+Skills
+
+</button>
+
+
+<button
+onclick="quickAsk(
+'Tell me about his projects'
+)"
+>
+
+Projects
+
+</button>
+
+
+<button
+onclick="quickAsk(
+'What is his education?'
+)"
+>
+
+Education
+
+</button>
+
+
+</div>
+
+
+<div class="chat-input">
+
+
+<input
+id="userInput"
+type="text"
+placeholder="Ask anything..."
+autocomplete="off"
+>
+
+
+<button
+class="send"
+id="sendBtn"
+>
+➤
+</button>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section id="contact">
 
 <div class="container">
 
-<div class="section-title">
-<div class="eyebrow">05 — Contact</div>
-<h2>Let's connect.</h2>
-<p>
-Have a question, opportunity or message? Send it directly.
-</p>
+
+<div class="section-head reveal">
+
+<div class="eyebrow">
+Contact
 </div>
+
+<h2>
+Let's connect.
+</h2>
+
+<p>
+Send me a message directly from this website.
+</p>
+
+</div>
+
 
 <div class="contact-grid">
 
-<div class="contact-card">
 
-<h3>Get in touch</h3>
+<!-- CONTACT FORM -->
 
-<p>
-For professional opportunities, collaboration or general queries.
-</p>
-
-<a class="contact-link" href="mailto:s4850489@gmail.com">
-📧 s4850489@gmail.com
-</a>
-
-<a class="contact-link" href="tel:+919882140449">
-📞 +91 9882140449
-</a>
-
-<a class="contact-link" href="https://instagram.com/Suhail_saifi8082" target="_blank">
-📷 Instagram — @Suhail_saifi8082
-</a>
-
-<a class="contact-link"
-href="https://wa.me/919882140449?text=Hello%20Mohd%20Suhail"
-target="_blank">
-💬 WhatsApp
-</a>
-
-</div>
+<div class="card reveal">
 
 
-<div class="contact-card">
+<h3>
+Send me a message
+</h3>
 
-<h3>Ask me something</h3>
+<br>
 
-<form action="https://formspree.io/f/maewqgzy" method="POST">
 
-<div class="form-group">
-<label>Your Name</label>
-<input type="text" name="name" required>
-</div>
+<form
+id="contact-form"
+class="contact-form"
+>
 
-<div class="form-group">
-<label>Your Email</label>
-<input type="email" name="email" required>
-</div>
 
-<div class="form-group">
-<label>Your Question / Message</label>
-<textarea name="message" required></textarea>
-</div>
+<input
+type="text"
+name="name"
+placeholder="Your name"
+required
+>
 
-<input type="hidden" name="_subject"
-value="New message from Mohd Suhail Portfolio">
 
-<button class="btn btn-dark" type="submit">
-Send Message
+<input
+type="email"
+name="email"
+placeholder="Your email"
+required
+>
+
+
+<input
+type="text"
+name="title"
+placeholder="Subject"
+required
+>
+
+
+<textarea
+name="message"
+placeholder="Write your message..."
+required
+></textarea>
+
+
+<button
+type="submit"
+class="btn btn-primary"
+id="emailBtn"
+>
+
+Send Message →
+
 </button>
+
+
+<div
+id="contactStatus"
+class="contact-status"
+></div>
+
 
 </form>
 
-</div>
 
 </div>
 
+
+<!-- CONTACT INFO -->
+
+<div class="card reveal">
+
+
+<h3>
+Professional focus
+</h3>
+
+
+<div class="contact-item">
+
+<span>
+Email
+</span>
+
+<a
+href="mailto:s4850489@gmail.com"
+>
+s4850489@gmail.com
+</a>
+
 </div>
-</section>
 
 
-<!-- WHATSAPP -->
+<div class="contact-item">
 
-<a class="whatsapp"
-href="https://wa.me/919882140449?text=Hello%20Mohd%20Suhail"
-target="_blank"
-aria-label="WhatsApp">
-💬
+<span>
+Focus
+</span>
+
+Data Analytics • Generative AI • Web Development
+
+</div>
+
+
+<div class="contact-item">
+
+<span>
+Location
+</span>
+
+India
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="mailto:s4850489@gmail.com"
+class="btn btn-primary"
+>
+
+Open Email →
+
 </a>
 
 
-<!-- FOOTER -->
+<a
+href="#ai"
+class="btn"
+>
+
+Ask AI
+
+</a>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     CERTIFICATE MODAL
+===================================================== -->
+
+<div
+class="certificate-modal"
+id="certificateModal"
+onclick="closeCertificate(event)"
+>
+
+
+<button
+class="close-modal"
+onclick="closeCertificate()"
+>
+×
+</button>
+
+
+<img
+id="certificatePreview"
+src=""
+alt="Certificate Preview"
+>
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-<div class="container">
+<div class="container footer-flex">
 
-<h3>Mohd Suhail</h3>
 
-<p>
-Personal Portfolio • Education • Skills • Technology
-</p>
+<div>
 
-<div class="footer-line"></div>
+© 2026 Mohd Suhail.
+All rights reserved.
 
-<p>
-© 2026 <span class="trademark">Mohd Suhail™</span>
-</p>
+</div>
 
-<p>
-Created & Designed by <strong>Mohd Suhail</strong>
-</p>
 
-<p>
-Made with HTML • CSS • JavaScript
-</p>
+<div>
+
+Designed & built by
+<strong>Mohd Suhail</strong>.
+
+</div>
+
 
 </div>
 
 </footer>
 
 
-<!-- RESUME MODAL -->
-
-<div class="modal" id="resumeModal">
-
-<div class="modal-content">
-
-<span class="close" onclick="closeResume()">×</span>
-
-<h2 style="margin-bottom:5px;">Create My Resume</h2>
-
-<p style="color:#777;margin-bottom:20px;">
-Enter your details and generate a printable resume.
-</p>
-
-<form onsubmit="generateResume(event)">
-
-<div class="form-group">
-<label>Full Name</label>
-<input id="rname" value="Mohd Suhail" required>
-</div>
-
-<div class="form-group">
-<label>Phone</label>
-<input id="rphone" value="+91 9882140449" required>
-</div>
-
-<div class="form-group">
-<label>Email</label>
-<input id="remail" value="s4850489@gmail.com" required>
-</div>
-
-<div class="form-group">
-<label>Career / Profile</label>
-<input id="rprofile"
-value="BCA Graduate | Aspiring Data Analyst | Technology Enthusiast"
-required>
-</div>
-
-<div class="form-group">
-<label>Skills</label>
-<textarea id="rskills">HTML & CSS, Python Basics, JavaScript Basics, C, Java, PHP, DBMS, Data Structures, MS Excel, MS Word, PowerPoint, Tally ERP 9</textarea>
-</div>
-
-<button class="btn btn-dark" type="submit">
-Generate Resume
-</button>
-
-</form>
-
-</div>
-</div>
-
-
 <script>
 
-function openResume(){
-    document.getElementById("resumeModal").style.display="block";
-}
 
-function closeResume(){
-    document.getElementById("resumeModal").style.display="none";
-}
+/* =====================================================
+   EMAILJS CONFIGURATION
+===================================================== */
 
-window.onclick=function(event){
-    const modal=document.getElementById("resumeModal");
+/*
+   EmailJS Dashboard se ye 3 values lo.
 
-    if(event.target===modal){
-        closeResume();
-    }
-}
+   1. Public Key
+   2. Service ID
+   3. Template ID
+*/
 
-function generateResume(event){
+
+const EMAILJS_PUBLIC_KEY =
+"YOUR_EMAILJS_PUBLIC_KEY";
+
+
+const EMAILJS_SERVICE_ID =
+"YOUR_EMAILJS_SERVICE_ID";
+
+
+const EMAILJS_TEMPLATE_ID =
+"YOUR_EMAILJS_TEMPLATE_ID";
+
+
+emailjs.init({
+
+    publicKey:
+    EMAILJS_PUBLIC_KEY
+
+});
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+const contactForm =
+document.getElementById(
+    "contact-form"
+);
+
+
+const contactStatus =
+document.getElementById(
+    "contactStatus"
+);
+
+
+const emailBtn =
+document.getElementById(
+    "emailBtn"
+);
+
+
+contactForm.addEventListener(
+"submit",
+function(event){
 
     event.preventDefault();
 
-    const name=document.getElementById("rname").value;
-    const phone=document.getElementById("rphone").value;
-    const email=document.getElementById("remail").value;
-    const profile=document.getElementById("rprofile").value;
-    const skills=document.getElementById("rskills").value;
 
-    const resumeWindow=window.open("","_blank");
+    if(
+        EMAILJS_PUBLIC_KEY
+        .startsWith("YOUR_")
+    ){
 
-    resumeWindow.document.write(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <title>${name} - Resume</title>
+        contactStatus.className =
+            "contact-status error";
 
-    <style>
+        contactStatus.textContent =
+            "Please configure EmailJS first.";
 
-    body{
-        font-family:Arial,sans-serif;
-        max-width:850px;
-        margin:auto;
-        padding:50px;
-        color:#222;
+        return;
+
     }
 
-    h1{
-        font-size:38px;
-        margin-bottom:5px;
+
+    emailBtn.disabled =
+        true;
+
+    emailBtn.textContent =
+        "Sending...";
+
+
+    contactStatus.textContent =
+        "";
+
+
+    emailjs.sendForm(
+
+        EMAILJS_SERVICE_ID,
+
+        EMAILJS_TEMPLATE_ID,
+
+        this
+
+    )
+
+
+    .then(function(){
+
+        contactStatus.className =
+            "contact-status success";
+
+        contactStatus.textContent =
+            "✓ Message sent successfully!";
+
+
+        contactForm.reset();
+
+
+        emailBtn.disabled =
+            false;
+
+        emailBtn.textContent =
+            "Send Message →";
+
+    })
+
+
+    .catch(function(error){
+
+        console.error(
+            "EmailJS Error:",
+            error
+        );
+
+
+        contactStatus.className =
+            "contact-status error";
+
+        contactStatus.textContent =
+            "✕ Message could not be sent.";
+
+
+        emailBtn.disabled =
+            false;
+
+        emailBtn.textContent =
+            "Send Message →";
+
+    });
+
+});
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuBtn =
+document.getElementById(
+    "menuBtn"
+);
+
+
+const navLinks =
+document.getElementById(
+    "navLinks"
+);
+
+
+menuBtn.addEventListener(
+"click",
+function(){
+
+    navLinks.classList.toggle(
+        "open"
+    );
+
+});
+
+
+document
+.querySelectorAll(
+    ".nav-links a"
+)
+.forEach(function(link){
+
+    link.addEventListener(
+    "click",
+    function(){
+
+        navLinks.classList.remove(
+            "open"
+        );
+
+    });
+
+});
+
+
+/* =====================================================
+   DARK / LIGHT MODE
+===================================================== */
+
+const themeBtn =
+document.getElementById(
+    "themeBtn"
+);
+
+
+themeBtn.addEventListener(
+"click",
+function(){
+
+    document.body.classList.toggle(
+        "light"
+    );
+
+
+    if(
+        document.body.classList.contains(
+            "light"
+        )
+    ){
+
+        themeBtn.textContent =
+            "☀";
+
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
+
     }
 
-    .contact{
-        color:#666;
-        margin-bottom:30px;
+    else{
+
+        themeBtn.textContent =
+            "☾";
+
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
     }
 
-    h2{
-        border-bottom:2px solid #111;
-        padding-bottom:7px;
-        margin-top:30px;
-    }
+});
 
-    .profile{
-        color:#555;
-        line-height:1.7;
-    }
 
-    li{
-        margin-bottom:7px;
-    }
+if(
+    localStorage.getItem(
+        "theme"
+    ) === "light"
+){
 
-    .skills{
-        line-height:2;
-    }
+    document.body.classList.add(
+        "light"
+    );
 
-    @media print{
-        body{
-            padding:20px;
-        }
-    }
+    themeBtn.textContent =
+        "☀";
 
-    </style>
-    </head>
-
-    <body>
-
-    <h1>${name}</h1>
-
-    <div class="contact">
-    ${phone} • ${email}
-    </div>
-
-    <h2>Professional Profile</h2>
-
-    <p class="profile">
-    ${profile}
-    </p>
-
-    <h2>Education</h2>
-
-    <ul>
-    <li><strong>BCA — Bachelor of Computer Applications</strong> — Shri Ram Group of Colleges, Muzaffarnagar — 2023–2026</li>
-    <li><strong>ADIT — Advanced Diploma in Information Technology</strong> — ITC, Khatauli — 2023–2024</li>
-    <li><strong>Class 12th — UP Board</strong> — Pickett Inter College, Khatauli — 2023</li>
-    <li><strong>Class 10th — UP Board</strong> — Pickett Inter College, Khatauli — 2021</li>
-    </ul>
-
-    <h2>Technical Skills</h2>
-
-    <p class="skills">
-    ${skills}
-    </p>
-
-    <h2>Certificates & Achievements</h2>
-
-    <ul>
-    <li>Scout & Guide A Camp — 2020</li>
-    <li>Scout & Guide B Camp — 2022</li>
-    <li>ADIT Certificate — ITC</li>
-    </ul>
-
-    <br><br>
-
-    <button onclick="window.print()">
-    Print / Save as PDF
-    </button>
-
-    </body>
-    </html>
-    `);
-
-    resumeWindow.document.close();
 }
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const reveals =
+document.querySelectorAll(
+    ".reveal"
+);
+
+
+function revealOnScroll(){
+
+    reveals.forEach(
+    function(element){
+
+        const top =
+            element
+            .getBoundingClientRect()
+            .top;
+
+
+        if(
+            top <
+            window.innerHeight - 80
+        ){
+
+            element.classList.add(
+                "active"
+            );
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+
+revealOnScroll();
+
+
+/* =====================================================
+   CERTIFICATE VIEWER
+===================================================== */
+
+const certificateModal =
+document.getElementById(
+    "certificateModal"
+);
+
+
+const certificatePreview =
+document.getElementById(
+    "certificatePreview"
+);
+
+
+function openCertificate(
+    image
+){
+
+    certificatePreview.src =
+        image;
+
+
+    certificateModal.classList.add(
+        "show"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function closeCertificate(
+    event
+){
+
+    if(
+        event &&
+        event.target !==
+        certificateModal &&
+        !event.target.classList.contains(
+            "close-modal"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    certificateModal.classList.remove(
+        "show"
+    );
+
+
+    certificatePreview.src =
+        "";
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(
+        event.key ===
+        "Escape"
+    ){
+
+        certificateModal.classList.remove(
+            "show"
+        );
+
+
+        certificatePreview.src =
+            "";
+
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+});
+
+
+/* =====================================================
+   REAL AI
+===================================================== */
+
+
+/*
+   IMPORTANT:
+
+   Vercel backend deploy karne ke baad
+   yahan apna backend URL paste karo.
+
+   Example:
+
+   https://suhail-ai-backend.vercel.app/api/chat
+*/
+
+
+const AI_API_URL =
+"https://YOUR-BACKEND-DOMAIN.vercel.app/api/chat";
+
+
+const chat =
+document.getElementById(
+    "chat"
+);
+
+
+const userInput =
+document.getElementById(
+    "userInput"
+);
+
+
+const sendBtn =
+document.getElementById(
+    "sendBtn"
+);
+
+
+function escapeHTML(
+    text
+){
+
+    return text
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function formatAIResponse(
+    text
+){
+
+    let safe =
+        escapeHTML(text);
+
+
+    safe =
+        safe.replace(
+            /\*\*(.*?)\*\*/g,
+            "<strong>$1</strong>"
+        );
+
+
+    safe =
+        safe.replace(
+            /\n/g,
+            "<br>"
+        );
+
+
+    return safe;
+
+}
+
+
+function addMessage(
+    text,
+    type
+){
+
+    const message =
+        document.createElement(
+            "div"
+        );
+
+
+    message.className =
+        "message " +
+        type;
+
+
+    message.innerHTML =
+        text;
+
+
+    chat.appendChild(
+        message
+    );
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+async function sendMessage(){
+
+    const question =
+        userInput.value.trim();
+
+
+    if(!question){
+
+        return;
+
+    }
+
+
+    addMessage(
+        escapeHTML(question),
+        "user"
+    );
+
+
+    userInput.value =
+        "";
+
+
+    sendBtn.disabled =
+        true;
+
+
+    const typing =
+        document.createElement(
+            "div"
+        );
+
+
+    typing.className =
+        "message bot typing";
+
+
+    typing.id =
+        "typing";
+
+
+    typing.textContent =
+        "Suhail AI is thinking...";
+
+
+    chat.appendChild(
+        typing
+    );
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+
+    try{
+
+
+        const response =
+            await fetch(
+                AI_API_URL,
+                {
+
+                    method:
+                        "POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            message:
+                                question
+
+                        })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        document
+        .getElementById(
+            "typing"
+        )
+        ?.remove();
+
+
+        if(
+            !response.ok
+        ){
+
+            throw new Error(
+                data.error ||
+                "AI request failed"
+            );
+
+        }
+
+
+        addMessage(
+            formatAIResponse(
+                data.reply
+            ),
+            "bot"
+        );
+
+
+    }
+
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        document
+        .getElementById(
+            "typing"
+        )
+        ?.remove();
+
+
+        addMessage(
+
+            "⚠️ Sorry, AI is temporarily unavailable. Please try again.",
+
+            "bot"
+
+        );
+
+    }
+
+
+    sendBtn.disabled =
+        false;
+
+}
+
+
+function quickAsk(
+    question
+){
+
+    userInput.value =
+        question;
+
+
+    sendMessage();
+
+}
+
+
+sendBtn.addEventListener(
+    "click",
+    sendMessage
+);
+
+
+userInput.addEventListener(
+"keydown",
+function(event){
+
+    if(
+        event.key ===
+        "Enter"
+    ){
+
+        sendMessage();
+
+    }
+
+});
+
 
 </script>
 
+
 </body>
-  </html>
+
+</html>
